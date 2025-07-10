@@ -23,10 +23,10 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   // 교체할 텍스트 요소들
-  const heroTitle    = document.querySelector('.hero h1');
+  const heroTitle = document.querySelector('.hero h1');
   const heroSubtitle = document.querySelector('.hero h2');
   const sectionTitle = document.querySelector('.carousel-container .section-title');
-  const boxEls       = Array.from(document.querySelectorAll('.boxes .box'));
+  const boxEls = Array.from(document.querySelectorAll('.boxes .box'));
 
   if (!heroTitle || !heroSubtitle || !sectionTitle || boxEls.length === 0) {
     console.error('텍스트 교체용 요소를 찾을 수 없습니다.');
@@ -39,13 +39,13 @@ window.addEventListener('DOMContentLoaded', () => {
       heroTitle: '기후변화',
       heroSubtitle: '조선부터 현대까지',
       sectionTitle: '기후와 강수량의 변화',
-      boxes: ['폭설','폭우','폭염','홍수','태풍','우박']
+      boxes: ['폭설', '폭우', '폭염', '홍수', '태풍', '우박']
     },
     en: {
       heroTitle: 'Climate Change',
-      heroSubtitle: 'From Joseon to Modern',
+      heroSubtitle: 'From Joseon to Today',
       sectionTitle: 'Climate and Precipitation Changes',
-      boxes: ['Heavy Snow','Heavy Rain','Heat Wave','Flood','Typhoon','Hail']
+      boxes: ['Heavy Snow', 'Heavy Rain', 'Heat Wave', 'Flood', 'Typhoon', 'Hail']
     }
   };
 
@@ -59,11 +59,25 @@ window.addEventListener('DOMContentLoaded', () => {
     langToggle.textContent = current === 'ko' ? 'EN' : 'KR';
 
     // 각 요소에 텍스트 업데이트
-    heroTitle.textContent    = texts[current].heroTitle;
+    heroTitle.textContent = texts[current].heroTitle;
     heroSubtitle.textContent = texts[current].heroSubtitle;
     sectionTitle.textContent = texts[current].sectionTitle;
     boxEls.forEach((box, i) => {
       box.textContent = texts[current].boxes[i];
     });
   });
+  // 3) 스크롤 애니메이션
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      // 화면에 보이면 visible 추가, 아니면 제거
+      entry.target.classList.toggle('visible', entry.isIntersecting);
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  // 관찰 대상: 모든 section
+  document.querySelectorAll('section')
+    .forEach(sec => observer.observe(sec));
+
 });
