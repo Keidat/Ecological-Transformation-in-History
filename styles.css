@@ -1,0 +1,173 @@
+/* 공통 설정 & 스크롤 스냅 */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+/* 언어 토글 버튼 */
+#lang-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem 1rem;
+  background: #fff;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  z-index: 100;
+}
+
+section {
+  scroll-snap-align: start;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+/* 1. 히어로 섹션 */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  color: #111111;
+  font-family: sans-serif;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  letter-spacing: 0.2rem;
+  margin: 0;
+}
+
+.hero h2 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: 0.1rem;
+  margin-top: 0.5rem;
+}
+
+/* 2. 슬라이더 & 섹션 제목 */
+.carousel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  /* background: #f5f5f5; */
+  padding-top: 2rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-family: sans-serif;
+  margin: 0;
+  color: #222;
+}
+
+.carousel {
+  width: 80%;
+  max-width: 800px;
+  height: 300px;
+  overflow: hidden;
+  border: 2px solid #ccc;
+  position: relative;
+}
+
+.carousel ul {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
+}
+
+.carousel li {
+  flex: 0 0 100%;
+}
+
+.carousel img {
+  width: 100%;
+  height: 300px;
+  object-fit: scale-down;
+  object-position: center;
+  background: #ffffff;
+}
+
+/* 3. 박스 그리드 섹션 */
+/* gap: row-gap column-gap */
+.boxes {
+  display: grid;
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.1rem 2rem;
+  /* 세로 간격 0.5rem, 가로 간격 2rem */
+  padding: 2rem 0;
+  background: #fff;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e0e0e0;
+  color: #fff;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+  text-decoration: none;
+  font-size: 40px;
+  height: 300px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  transition: transform 0.3s ease, filter 0.3s ease, border-color 0.3s ease;
+}
+
+/* 개별 박스 배경 이미지 지정 */
+.box1 {
+  background-image: url(https://flexible.img.hani.co.kr/flexible/normal/580/390/imgdb/original/2024/0222/6117085665510394.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.box2 {
+  background-image: url(https://cdn.daejonilbo.com/news/photo/202208/2018263_435134_4830.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.box3 {
+  background-image: url(https://image.ajunews.com/content/image/2020/06/14/20200614100452539630.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.box4 {
+  background-image: url(https://cdn.sisain.co.kr/news/photo/202204/47318_85598_4524.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.box5 {
+  background-image: url(https://www.sciencetimes.co.kr/jnrepo/uploads//2022/09/%EA%B7%B8%EB%A6%BC1_NASA-Earth-Observatory-480x320.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.box6 {
+  background-image: url(https://i.namu.wiki/i/rQuk6skKN1eDH-kxK4RaS-0HlDee3Fu7GHus3cpN6tKZw6Mwi-n5dmS8zrhQVoFsKS3RwPt4ZIVlI0fAjdDL0Q.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.box:hover {
+  filter: brightness(0.8);
+  /* 2px 위로 부드럽게 이동 */
+  transform: translateY(-3px);
+}
