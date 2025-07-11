@@ -20,43 +20,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const texts = {
     ko: {
-      title:  '태풍',
+      title:  '우박',
       source: '출처: Google/조선왕조실록',
       summaries: [
-        '조선 현종 1070년(1070) 6월 29일, 태풍으로 배들이 전복되고 해안 마을이 침수되었다.',
-        '조선 숙종 1131년(1131) 10월 18일, 태풍 영향으로 산사태와 홍수가 동반되어 농경지가 파괴되었다.',
-        '조선 숙종 1141년(1141) 8월 4일, 태풍으로 강풍이 불어 지붕이 날아가고 가옥이 붕괴되었다.',
-        '조선 광해군 1110년(1110) 7월 7일, 태풍 피해로 숲이 훼손되고 수목이 쓰러졌다.',
-        '조선 선조 1070년(1070) 7월 23일, 태풍으로 관청 지붕이 파손되고 공문서가 유실되었다.',
-        '고려 경종 1076년(1076) 9월 3일, 태풍으로 섬 일부가 유실되고 어로 활동이 중단되었다.'
+        '우박으로 과수원과 밭작물이 크게 파괴되었다.',
+        '우박과 폭우로 마을 지붕이 손상되었다.',
+        '우박이 논밭에 구멍을 내며 씨앗이 파손되었다.',
+        '우박으로 가축이 부상을 입고 축사가 일부 붕괴되었다.',
+        '우박으로 도로가 파손되어 상인들이 고립되었다.',
+        '우박과 함께 산사태가 발생해 주민이 대피했다.'
       ],
       moderns: [
-        '조선시대에도 태풍으로 배들이 전복되고 해안 마을이 침수되었듯, 현대에도 태풍이 발생했다면 선박 충돌과 해안 침수가 발생했을 것이다. 해안 방풍림과 해수 저류 시설을 구축해 해안 방호를 강화했을 것이다.',
-        '조선시대에도 태풍으로 산사태와 홍수가 동반되어 농경지가 파괴되었듯, 현대에도 태풍이 발생했다면 산사태와 침수로 농업 생산이 전면 중단되었을 것이다. 다층 증강 식생대와 토양 고정 기법을 도입해 지반 안정성을 확보했을 것이다.',
-        '조선시대에도 태풍으로 지붕이 날아가고 가옥이 붕괴되었듯, 현대에도 태풍이 발생했다면 강풍 피해로 다수 주택이 손실되었을 것이다. 내풍 설계 건축물과 풍력 차단벽을 설치해 구조물을 보호했을 것이다.',
-        '조선시대에도 태풍 피해로 숲이 훼손되고 수목이 쓰러졌듯, 현대에도 태풍이 발생했다면 산림 훼손과 이차 산사태가 발생했을 것이다. 지속 가능한 산림 관리와 다층 나무 식재로 회복력을 강화했을 것이다.',
-        '조선시대에도 태풍으로 관청 지붕이 파손되고 공문서가 유실되었듯, 현대에도 태풍이 발생했다면 공공 청사가 훼손되고 기록 데이터가 손실되었을 것이다. 녹색 지붕과 방풍 차단 시스템으로 공공 인프라를 보호했을 것이다.',
-        '조선시대에도 태풍으로 섬 일부가 유실되고 어로 활동이 중단되었듯, 현대에도 태풍이 발생했다면 해안 지형 변화와 어업 중단이 발생했을 것이다. 해양 생태계 복원 프로젝트와 방풍망 설치로 어업 자원을 보호했을 것이다.'
+        '조선시대에도 우박으로 과수원과 밭작물이 크게 파괴되었듯, 현대에도 우박이 내렸다면 농업용 방호망과 하우스 보호막이 없었다면 작물이 대규모로 손실되었을 것이다. 농업용 방호망과 하우스 보호막을 설치해 작물을 안전하게 보호했을 것이다.',
+        '조선시대에도 우박과 폭우로 마을 지붕이 손상되었듯, 현대에도 우박이 내렸다면 충격흡수형 패널과 배수 시스템이 없었다면 다수 주택이 파손되었을 것이다. 지붕에 충격흡수형 패널과 배수 시스템을 적용해 우박 피해를 최소화했을 것이다.',
+        '조선시대에도 우박이 논밭에 구멍을 내며 씨앗이 파손되었듯, 현대에도 우박이 내렸다면 멀칭과 잡초커버가 없었다면 토양 침식과 파종 손실이 심각했을 것이다. 멀칭 및 잡초커버를 사용해 토양 침식과 씨앗 손상을 방지했을 것이다.',
+        '조선시대에도 우박으로 가축이 부상을 입고 축사가 붕괴되었듯, 현대에도 우박이 내렸다면 차양막과 구조보강 자재가 없었다면 축사가 심각하게 손상되었을 것이다. 축사에 내구성 높은 차양막과 구조보강 자재를 도입해 가축 피해를 예방했을 것이다.',
+        '조선시대에도 우박으로 도로가 파손되어 상인들이 고립되었듯, 현대에도 우박이 내렸다면 방호 울타리와 방수성 포장이 없었다면 교통과 물류가 마비되었을 것이다. 방호 울타리와 방수성 포장을 도로에 적용해 교통 안전을 확보했을 것이다.',
+        '조선시대에도 우박과 함께 산사태가 발생해 주민이 대피했듯, 현대에도 우박이 내렸다면 다층 식생 경계와 토양 고정 시스템이 없었다면 토사 유출과 위험이 가중되었을 것이다. 다층 식생 경계와 토양 고정 시스템을 설치해 산사태를 예방했을 것이다.'
       ]
     },
     en: {
-      title:  'Typhoon',
+      title:  'Hail',
       source: 'Source: Google/Joseonwangjosillok',
       summaries: [
-        'On June 29, 1070, a typhoon capsized ships and flooded coastal villages.',
-        'On October 18, 1131, a typhoon triggered landslides and floods, destroying farmland.',
-        'On August 4, 1141, a typhoon’s strong winds tore off roofs and collapsed houses.',
-        'On July 7, 1110, a typhoon damaged forests and toppled trees.',
-        'On July 23, 1070, a typhoon broke public building roofs and washed away official documents.',
-        'On September 3, 1076, a typhoon eroded islands and halted fishing activities.'
+        'Hail destroyed orchards and fields.',
+        'Hail and heavy rain damaged village roofs.',
+        'Hail punched holes in paddies and damaged seeds.',
+        'Hail injured livestock and partially collapsed barns.',
+        'Hail damaged roads, isolating traders.',
+        'Hail triggered landslides that forced evacuations.'
       ],
       moderns: [
-        'As in Joseon when typhoons capsized ships and flooded villages, today coastal flooding and vessel collisions would occur. Coastal shelterbelts and seawater retention infrastructure would reinforce shoreline protection.',
-        'As in Joseon when typhoons caused landslides and floods that destroyed fields, today agriculture would grind to a halt. Multi‐layered vegetation buffers and soil stabilization techniques would secure slopes.',
-        'As in Joseon when typhoons tore off roofs and collapsed homes, today wind damage would level houses. Wind‐resistant building designs and aerodynamic barriers would protect structures.',
-        'As in Joseon when typhoons devastated forests and caused secondary landslides, today wildfire and debris flows could follow. Sustainable forest management and layered replanting would enhance resilience.',
-        'As in Joseon when typhoons tore off roofs and washed away records, today public facilities and data centers would be at risk. Green roofs and windbreak systems would safeguard critical infrastructure.',
-        'As in Joseon when typhoons eroded islands and halted fishing, today coastal ecosystems and fisheries would suffer. Marine habitat restoration and protective windbreak nets would shield fishery resources.'
+        'As in Joseon when hail destroyed orchards and fields, today hailstorms would devastate crops. Crop-protection netting and reinforced greenhouse covers would have mitigated damage.',
+        'As in Joseon when hail and heavy rain damaged roofs, today hail would shatter roofing tiles. Impact-resistant roofing and rapid drainage systems would have protected homes.',
+        'As in Joseon when hail punched holes in paddies, today hail would erode soil and ruin seedlings. Mulching and cover-crop systems would have minimized soil loss and seed damage.',
+        'As in Joseon when hail injured livestock and collapsed barns, today hail would harm animals and structures. Livestock shelters with impact-absorbing canopies would have safeguarded animals.',
+        'As in Joseon when hail damaged roads and isolated traders, today hail would disrupt transportation. Hail-resistant pavements and protective barriers would have ensured traffic flow.',
+        'As in Joseon when hail triggered landslides and evacuations, today hail combined with heavy rain would cause debris flows. Vegetation-stabilized slopes and multi-layer soil reinforcement would have prevented landslides and protected communities.'
       ]
     }
   };
@@ -66,8 +66,8 @@ document.addEventListener('DOMContentLoaded', () => {
     lang = lang === 'ko' ? 'en' : 'ko';
     btn.textContent = lang === 'ko' ? 'EN' : 'KR';
 
-    titleEl.textContent  = texts[lang].title;
-    sourceEl.textContent = texts[lang].source;
+    titleEl.textContent   = texts[lang].title;
+    sourceEl.textContent  = texts[lang].source;
     sums.forEach((p,i) => p.textContent = texts[lang].summaries[i]);
     mods.forEach((p,i) => p.textContent = texts[lang].moderns[i]);
   });
