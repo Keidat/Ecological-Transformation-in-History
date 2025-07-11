@@ -1,7 +1,4 @@
-// script.js
-
 window.addEventListener('DOMContentLoaded', () => {
-  // 슬라이더 초기화
   document.querySelectorAll('.carousel').forEach(carousel => {
     const ul = carousel.querySelector('ul');
     const slides = ul.children;
@@ -15,14 +12,12 @@ window.addEventListener('DOMContentLoaded', () => {
     }, 3000);
   });
 
-  // 언어 토글 버튼 찾기
   const langToggle = document.getElementById('lang-toggle');
   if (!langToggle) {
     console.error('Language toggle button(#lang-toggle) not found');
     return;
   }
 
-  // 교체할 텍스트 요소들
   const heroTitle = document.querySelector('.hero h1');
   const heroSubtitle = document.querySelector('.hero h2');
   const sectionTitle = document.querySelector('.carousel-container .section-title');
@@ -33,7 +28,6 @@ window.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  // 다국어 사전
   const texts = {
     ko: {
       heroTitle: '기후변화',
@@ -49,16 +43,12 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // 현재 언어 상태
   let current = 'ko';
 
   langToggle.addEventListener('click', () => {
-    // 언어 전환
     current = current === 'ko' ? 'en' : 'ko';
-    // 버튼 텍스트도 전환 (KR ↔ EN)
     langToggle.textContent = current === 'ko' ? 'EN' : 'KR';
 
-    // 각 요소에 텍스트 업데이트
     heroTitle.textContent = texts[current].heroTitle;
     heroSubtitle.textContent = texts[current].heroSubtitle;
     sectionTitle.textContent = texts[current].sectionTitle;
@@ -66,18 +56,14 @@ window.addEventListener('DOMContentLoaded', () => {
       box.textContent = texts[current].boxes[i];
     });
   });
-  // 3) 스크롤 애니메이션
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      // 화면에 보이면 visible 추가, 아니면 제거
       entry.target.classList.toggle('visible', entry.isIntersecting);
     });
   }, {
     threshold: 0.1
   });
 
-  // 관찰 대상: 모든 section
-  document.querySelectorAll('section')
-    .forEach(sec => observer.observe(sec));
-
+  document.querySelectorAll('section').forEach(sec => observer.observe(sec));
 });

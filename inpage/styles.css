@@ -1,4 +1,3 @@
-/* 1. Reset & Box Model */
 *,
 *::before,
 *::after {
@@ -7,7 +6,6 @@
     box-sizing: border-box;
 }
 
-/* 2. 기본 레이아웃 */
 html,
 body {
     width: 100%;
@@ -19,7 +17,6 @@ body {
     scroll-behavior: smooth;
 }
 
-/* 3. 스크롤 페이드업 애니메이션 */
 .animate {
     opacity: 0;
     transform: translateY(30px);
@@ -32,7 +29,6 @@ body {
     transform: translateY(0);
 }
 
-/* 4. 상세 페이지 컨테이너 */
 .detail-page {
     max-width: 900px;
     margin: 3rem auto;
@@ -42,7 +38,6 @@ body {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
-/* 출처(source) 문구 스타일 */
 .detail-page .source {
     font-size: 0.85rem;
     color: #666;
@@ -58,7 +53,6 @@ body {
     color: #111;
 }
 
-/* 5. 사료·현대 비교 박스 */
 .sub-boxes {
     display: grid;
     gap: 2rem;
@@ -109,12 +103,9 @@ body {
 
 .sub-box .record-date {
     font-size: 0.85rem;
-    /* 기록일 글씨를 약간 작게 */
     color: #666;
-    /* 눈에 덜 띄게 약한 색상도 추가 */
 }
 
-/* 긴 가로선을 위한 스타일 */
 hr.divider {
     border: none;
     height: 1px;
@@ -122,59 +113,58 @@ hr.divider {
     margin: 1rem 0;
 }
 
-/* 언어 토글 버튼 (index와 동일한 모양) */
 #lang-toggle {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  padding: 0.6rem 1.2rem;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #fff;
-  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-  border: none;
-  border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-  z-index: 100;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    z-index: 100;
 }
 
 #lang-toggle:hover {
-  background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
 }
 
 #lang-toggle:active {
-  transform: translateY(0) scale(0.96);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transform: translateY(0) scale(0.96);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 #back-button {
-  position: fixed;
-  top: 1rem;
-  left: 1rem;               /* 왼쪽 붙임 */
-  padding: 0.6rem 1.2rem;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #fff;
-  background: linear-gradient(135deg, #ff9966 0%, #ff5e62 100%);
-  border: none;
-  border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-  z-index: 100;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #ff9966 0%, #ff5e62 100%);
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    z-index: 100;
 }
 
 #back-button:hover {
-  background: linear-gradient(135deg, #ff5e62 0%, #ff9966 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+    background: linear-gradient(135deg, #ff5e62 0%, #ff9966 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
 }
 
 #back-button:active {
-  transform: translateY(0) scale(0.96);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transform: translateY(0) scale(0.96);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }

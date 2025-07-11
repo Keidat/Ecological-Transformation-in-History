@@ -73,7 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     const backBtn = document.getElementById('back-button');
     backBtn.addEventListener('click', () => {
-        // 이전 페이지로 이동 (히스토리 없으면 index.html 로)
         if (history.length > 1) {
             history.back();
         } else {
