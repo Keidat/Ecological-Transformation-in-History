@@ -1,24 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
-  
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      entry.target.classList.toggle('visible', entry.isIntersecting);
-    });
+  // 1) 애니메이션 관찰
+  const observer = new IntersectionObserver((ents) => {
+    ents.forEach(e => e.target.classList.toggle('visible', e.isIntersecting));
   }, { threshold: 0.1 });
-
   document.querySelectorAll('.animate').forEach(el => observer.observe(el));
 
-  
-  const btn        = document.getElementById('lang-toggle');
-  const backBtn    = document.getElementById('back-button');
-  const h1         = document.querySelector('.detail-page h1');
-  const source     = document.querySelector('.detail-page .source');
-  const summaries  = Array.from(document.querySelectorAll('.sub-box .summary'));
-  const moderns    = Array.from(document.querySelectorAll('.sub-box .modern'));
+  // 2) 뒤로가기
+  document.getElementById('back-button').addEventListener('click', () => {
+    if (history.length > 1) history.back();
+    else window.location.href = '../index.html';
+  });
 
-  const data = {
+  // 3) 언어 토글 요소
+  const btn      = document.getElementById('lang-toggle');
+  const titleEl  = document.querySelector('.detail-page h1');
+  const sourceEl = document.querySelector('.detail-page .source');
+  const sums     = Array.from(document.querySelectorAll('.sub-box .summary'));
+  const mods     = Array.from(document.querySelectorAll('.sub-box .modern'));
+
+  // 4) 텍스트 데이터
+  const texts = {
     ko: {
-      h1: '폭설',
+      title: '폭설',
       source: '출처: Google/조선왕조실록',
       summaries: [
         '고려 희종 21년(1220) 3월 9일, 대설로 길이 막혀 이동이 매우 어려웠다.',
@@ -40,8 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
       ]
     },
     en: {
-      h1: 'Heavy Snow',
-      source: 'Source: Google/Sillok',
+      title: 'Heavy Snow',
+      source: 'Source: Google/Joseonwangjosillok',
       summaries: [
         'On March 9, 1220 (Heijong 21), heavy snow blocked the roads, making travel extremely difficult.',
         'Even in April, as spring approached, sudden heavy snow disrupted agricultural preparations.',
@@ -63,10 +66,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  
+  // 5) 초기 언어 적용
   let lang = localStorage.getItem('lang') || 'ko';
   applyLang(lang);
 
+  // 6) 토글 클릭
   btn.addEventListener('click', () => {
     lang = lang === 'ko' ? 'en' : 'ko';
     localStorage.setItem('lang', lang);
@@ -74,16 +78,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function applyLang(l) {
-    btn.textContent = l === 'ko' ? 'EN' : 'KR';
-    h1.textContent = data[l].h1;
-    source.textContent = data[l].source;
-    summaries.forEach((p, i) => p.textContent = data[l].summaries[i]);
-    moderns.forEach((p, i) => p.textContent = data[l].moderns[i]);
+    btn.textContent       = l === 'ko' ? 'EN' : 'KR';
+    titleEl.textContent   = texts[l].title;
+    sourceEl.textContent  = texts[l].source;
+    sums.forEach((p,i) => p.textContent = texts[l].summaries[i]);
+    mods.forEach((p,i) => p.textContent = texts[l].moderns[i]);
   }
-
-  
-  backBtn.addEventListener('click', () => {
-    if (history.length > 1) history.back();
-    else window.location.href = '../index.html';
-  });
 });
