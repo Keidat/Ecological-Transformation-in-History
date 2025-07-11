@@ -62,8 +62,8 @@ section.visible {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: 
-    linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7)),
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7)),
     url('https://www.transparenttextures.com/patterns/cubes.png');
   background-blend-mode: lighten;
   background-size: cover;
@@ -95,10 +95,10 @@ section.visible {
   padding-top: 2rem;
 
   background: #ffffff;
-  box-shadow: inset 0 8px 16px rgba(0,0,0,0.05);
+  box-shadow: inset 0 8px 16px rgba(0, 0, 0, 0.05);
   border-radius: 8px;
   margin: 1rem;
-  padding-bottom: 2rem;
+  padding-bottom: 0.5rem;
 }
 
 .section-title {
@@ -137,6 +137,26 @@ section.visible {
   object-position: center;
   background: #ffffff;
 }
+
+.carousel-label {
+  font-size: 1rem;
+  /* section-title보다 작게 */
+  color: #444;
+  text-align: left;
+}
+
+.carousel-label {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.carousel,
+.carousel ul {
+  margin: 0;
+  padding: 0;
+}
+
 
 /* 3. 박스 그리드 섹션 */
 /* gap: row-gap column-gap */

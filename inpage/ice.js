@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ]
     },
     en: {
-      title:  'Hail',
+      title:  'Hailstone',
       source: 'Source: Google/Joseonwangjosillok',
       summaries: [
         'Hail destroyed orchards and fields.',
