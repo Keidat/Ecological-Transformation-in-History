@@ -1,13 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(e => e.target.classList.toggle('visible', e.isIntersecting));
     }, { threshold: 0.1 });
     document.querySelectorAll('.animate').forEach(el => observer.observe(el));
 
+
     document.getElementById('back-button').addEventListener('click', () => {
         if (history.length > 1) history.back();
         else window.location.href = '../index.html';
     });
+
 
     const btn = document.getElementById('lang-toggle');
     const titleEl = document.querySelector('.detail-page h1');
@@ -38,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         en: {
             title: 'Heat Wave',
-            source: 'Source: Google/Joseonwangjosillok',
+            source: 'Source: Google/Sillok',
             summaries: [
                 'The chronicle records over 40 days of continuous extreme heat.',
                 'Fields dried up, making agricultural preparations impossible.',
@@ -58,14 +61,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    let lang = 'ko';
+
+    let lang = localStorage.getItem('lang') || 'ko';
+    applyLang(lang);
+
     btn.addEventListener('click', () => {
         lang = lang === 'ko' ? 'en' : 'ko';
-        btn.textContent = lang === 'ko' ? 'EN' : 'KR';
-
-        titleEl.textContent = texts[lang].title;
-        sourceEl.textContent = texts[lang].source;
-        sums.forEach((p, i) => p.textContent = texts[lang].summaries[i]);
-        mods.forEach((p, i) => p.textContent = texts[lang].moderns[i]);
+        localStorage.setItem('lang', lang);
+        applyLang(lang);
     });
+
+    function applyLang(l) {
+        btn.textContent = l === 'ko' ? 'EN' : 'KR';
+        titleEl.textContent = texts[l].title;
+        sourceEl.textContent = texts[l].source;
+        sums.forEach((p, i) => p.textContent = texts[l].summaries[i]);
+        mods.forEach((p, i) => p.textContent = texts[l].moderns[i]);
+    }
 });

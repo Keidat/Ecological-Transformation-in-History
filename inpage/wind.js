@@ -1,13 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(e => e.target.classList.toggle('visible', e.isIntersecting));
     }, { threshold: 0.1 });
     document.querySelectorAll('.animate').forEach(el => observer.observe(el));
 
+
     document.getElementById('back-button').addEventListener('click', () => {
         if (history.length > 1) history.back();
         else window.location.href = '../index.html';
     });
+
 
     const btn = document.getElementById('lang-toggle');
     const titleEl = document.querySelector('.detail-page h1');
@@ -38,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         en: {
             title: 'Typhoon',
-            source: 'Source: Google/Joseonwangjosillok',
+            source: 'Source: Google/Sillok',
             summaries: [
                 'On June 29, 1070, a typhoon capsized ships and flooded coastal villages.',
                 'On October 18, 1131, a typhoon triggered landslides and floods, destroying farmland.',
@@ -49,8 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
             ],
             moderns: [
                 'As in Joseon when typhoons capsized ships and flooded villages, today coastal flooding and vessel collisions would occur. Coastal shelterbelts and seawater retention infrastructure would reinforce shoreline protection.',
-                'As in Joseon when typhoons caused landslides and floods that destroyed fields, today agriculture would grind to a halt. Multi‐layered vegetation buffers and soil stabilization techniques would secure slopes.',
-                'As in Joseon when typhoons tore off roofs and collapsed homes, today wind damage would level houses. Wind‐resistant building designs and aerodynamic barriers would protect structures.',
+                'As in Joseon when typhoons caused landslides and floods that destroyed fields, today agriculture would grind to a halt. Multi-layered vegetation buffers and soil stabilization techniques would secure slopes.',
+                'As in Joseon when typhoons tore off roofs and collapsed homes, today wind damage would level houses. Wind-resistant building designs and aerodynamic barriers would protect structures.',
                 'As in Joseon when typhoons devastated forests and caused secondary landslides, today wildfire and debris flows could follow. Sustainable forest management and layered replanting would enhance resilience.',
                 'As in Joseon when typhoons tore off roofs and washed away records, today public facilities and data centers would be at risk. Green roofs and windbreak systems would safeguard critical infrastructure.',
                 'As in Joseon when typhoons eroded islands and halted fishing, today coastal ecosystems and fisheries would suffer. Marine habitat restoration and protective windbreak nets would shield fishery resources.'
@@ -58,14 +61,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    let lang = 'ko';
+
+    let lang = localStorage.getItem('lang') || 'ko';
+    applyLang(lang);
+
     btn.addEventListener('click', () => {
         lang = lang === 'ko' ? 'en' : 'ko';
-        btn.textContent = lang === 'ko' ? 'EN' : 'KR';
-
-        titleEl.textContent = texts[lang].title;
-        sourceEl.textContent = texts[lang].source;
-        sums.forEach((p, i) => p.textContent = texts[lang].summaries[i]);
-        mods.forEach((p, i) => p.textContent = texts[lang].moderns[i]);
+        localStorage.setItem('lang', lang);
+        applyLang(lang);
     });
+
+    function applyLang(l) {
+        btn.textContent = l === 'ko' ? 'EN' : 'KR';
+        titleEl.textContent = texts[l].title;
+        sourceEl.textContent = texts[l].source;
+        sums.forEach((p, i) => p.textContent = texts[l].summaries[i]);
+        mods.forEach((p, i) => p.textContent = texts[l].moderns[i]);
+    }
 });

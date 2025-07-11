@@ -1,13 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(e => e.target.classList.toggle('visible', e.isIntersecting));
     }, { threshold: 0.1 });
     document.querySelectorAll('.animate').forEach(el => observer.observe(el));
 
+
     document.getElementById('back-button').addEventListener('click', () => {
         if (history.length > 1) history.back();
         else window.location.href = '../index.html';
     });
+
 
     const btn = document.getElementById('lang-toggle');
     const titleEl = document.querySelector('.detail-page h1');
@@ -37,35 +40,42 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         en: {
-            title: 'Hailstone ',
-            source: 'Source: Google/Joseonwangjosillok',
+            title: 'Hail',
+            source: 'Source: Google/Sillok',
             summaries: [
-                'Hailstone destroyed orchards and fields.',
-                'Hailstone and heavy rain damaged village roofs.',
-                'Hailstone punched holes in paddies and damaged seeds.',
-                'Hailstone injured livestock and partially collapsed barns.',
-                'Hailstone damaged roads, isolating traders.',
-                'Hailstone triggered landslides that forced evacuations.'
+                'Hail destroyed orchards and fields.',
+                'Hail and heavy rain damaged village roofs.',
+                'Hail punched holes in paddies and damaged seeds.',
+                'Hail injured livestock and partially collapsed barns.',
+                'Hail damaged roads, isolating traders.',
+                'Hail triggered landslides that forced evacuations.'
             ],
             moderns: [
-                'As in Joseon when hailstone destroyed orchards and fields, today hailstorms would devastate crops. Crop-protection netting and reinforced greenhouse covers would have mitigated damage.',
-                'As in Joseon when hailstone and heavy rain damaged roofs, today hailstone would shatter roofing tiles. Impact-resistant roofing and rapid drainage systems would have protected homes.',
-                'As in Joseon when hailstone punched holes in paddies, today hailstone would erode soil and ruin seedlings. Mulching and cover-crop systems would have minimized soil loss and seed damage.',
-                'As in Joseon when hailstone injured livestock and collapsed barns, today hailstone would harm animals and structures. Livestock shelters with impact-absorbing canopies would have safeguarded animals.',
-                'As in Joseon when hailstone damaged roads and isolated traders, today hailstone would disrupt transportation. Hail-resistant pavements and protective barriers would have ensured traffic flow.',
-                'As in Joseon when hailstone triggered landslides and evacuations, today hailstone combined with heavy rain would cause debris flows. Vegetation-stabilized slopes and multi-layer soil reinforcement would have prevented landslides and protected communities.'
+                'As in Joseon when hail destroyed orchards and fields, today hailstorms would devastate crops. Crop-protection netting and reinforced greenhouse covers would have mitigated damage.',
+                'As in Joseon when hail and heavy rain damaged roofs, today hail would shatter roofing tiles. Impact-resistant roofing and rapid drainage systems would have protected homes.',
+                'As in Joseon when hail punched holes in paddies, today hail would erode soil and ruin seedlings. Mulching and cover-crop systems would have minimized soil loss and seed damage.',
+                'As in Joseon when hail injured livestock and collapsed barns, today hail would harm animals and structures. Livestock shelters with impact-absorbing canopies would have safeguarded animals.',
+                'As in Joseon when hail damaged roads and isolated traders, today hail would disrupt transportation. Hail-resistant pavements and protective barriers would have ensured traffic flow.',
+                'As in Joseon when hail triggered landslides and evacuations, today hail combined with heavy rain would cause debris flows. Vegetation-stabilized slopes and multi-layer soil reinforcement would have prevented landslides and protected communities.'
             ]
         }
     };
 
-    let lang = 'ko';
+
+    let lang = localStorage.getItem('lang') || 'ko';
+    applyLang(lang);
+
     btn.addEventListener('click', () => {
         lang = lang === 'ko' ? 'en' : 'ko';
-        btn.textContent = lang === 'ko' ? 'EN' : 'KR';
-
-        titleEl.textContent = texts[lang].title;
-        sourceEl.textContent = texts[lang].source;
-        sums.forEach((p, i) => p.textContent = texts[lang].summaries[i]);
-        mods.forEach((p, i) => p.textContent = texts[lang].moderns[i]);
+        localStorage.setItem('lang', lang);
+        applyLang(lang);
     });
+
+    function applyLang(l) {
+        btn.textContent = l === 'ko' ? 'EN' : 'KR';
+        titleEl.textContent = texts[l].title;
+        sourceEl.textContent = texts[l].source;
+        sums.forEach((p, i) => p.textContent = texts[l].summaries[i]);
+        mods.forEach((p, i) => p.textContent = texts[l].moderns[i]);
+    }
 });

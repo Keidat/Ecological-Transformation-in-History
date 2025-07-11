@@ -1,13 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(e => e.target.classList.toggle('visible', e.isIntersecting));
     }, { threshold: 0.1 });
     document.querySelectorAll('.animate').forEach(el => observer.observe(el));
 
+
     document.getElementById('back-button').addEventListener('click', () => {
         if (history.length > 1) history.back();
         else window.location.href = '../index.html';
     });
+
 
     const btn = document.getElementById('lang-toggle');
     const titleEl = document.querySelector('.detail-page h1');
@@ -38,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         en: {
             title: 'Heavy Rain',
-            source: 'Source: Google/Joseonwangjosillok',
+            source: 'Source: Google/Sillok',
             summaries: [
                 'On August 17, 1230, heavy rain caused rivers to overflow, flooding surrounding farmland.',
                 'On June 12, 1150, torrential rain triggered landslides that blocked major roads.',
@@ -58,14 +61,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    let lang = 'ko';
+    let lang = localStorage.getItem('lang') || 'ko';
+    applyLang(lang);
+
     btn.addEventListener('click', () => {
         lang = lang === 'ko' ? 'en' : 'ko';
-        btn.textContent = lang === 'ko' ? 'EN' : 'KR';
-
-        titleEl.textContent = texts[lang].title;
-        sourceEl.textContent = texts[lang].source;
-        summaries.forEach((p, i) => p.textContent = texts[lang].summaries[i]);
-        moderns.forEach((p, i) => p.textContent = texts[lang].moderns[i]);
+        localStorage.setItem('lang', lang);
+        applyLang(lang);
     });
+
+    function applyLang(l) {
+        btn.textContent = l === 'ko' ? 'EN' : 'KR';
+        titleEl.textContent = texts[l].title;
+        sourceEl.textContent = texts[l].source;
+        summaries.forEach((p, i) => p.textContent = texts[l].summaries[i]);
+        moderns.forEach((p, i) => p.textContent = texts[l].moderns[i]);
+    }
 });
