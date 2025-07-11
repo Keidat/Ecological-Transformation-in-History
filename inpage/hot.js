@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     en: {
       title: 'Heat Wave',
-      source:'Source: Google/Sillok',
+      source:'Source: Google/Joseonwangjosillok',
       summaries: [
         'The chronicle records over 40 days of continuous extreme heat.',
         'Fields dried up, making agricultural preparations impossible.',
